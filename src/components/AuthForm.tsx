@@ -4,6 +4,7 @@ import {FieldValues, SubmitHandler, useForm} from "react-hook-form"
 import Input from "./inputs/Input"
 import Button from "./Button"
 import AuthSocialButton from "./AuthSocialButton"
+import {BsGithub, BsGoogle} from "react-icons/bs"
 
 type variantProps = "LOGIN" | "REGISTER"
 
@@ -54,19 +55,27 @@ const AuthForm = () => {
       <div className='bg-white px-4 py-8 shadow rounded-lg sm:py-10'>
         <form className='space-y-5' onSubmit={handleSubmit(onSubmit)}>
           {variant === "REGISTER" && (
-            <Input id='name' label='Name' register={register} errors={errors} />
+            <Input
+              id='name'
+              label='Name'
+              register={register}
+              errors={errors}
+              disabled={isLoading}
+            />
           )}
           <Input
             id='email'
             label='Email Address'
             register={register}
             errors={errors}
+            disabled={isLoading}
           />
           <Input
             id='password'
             label='Password'
             register={register}
             errors={errors}
+            disabled={isLoading}
           />
           <div className=''>
             <Button disabled={isLoading} fullWidth type='submit'>
@@ -87,7 +96,25 @@ const AuthForm = () => {
           </div>
 
           <div className='mt-6 flex gap-2'>
-            <AuthSocialButton />
+            <AuthSocialButton
+              icon={BsGithub}
+              onClick={() => socialAction("github")}
+            />
+            <AuthSocialButton
+              icon={BsGoogle}
+              onClick={() => socialAction("google")}
+            />
+          </div>
+        </div>
+
+        <div className='flex gap-2 justify-center text-sm mt-6 px-2 text-gray-500'>
+          <div className=''>
+            {variant === "LOGIN"
+              ? "New to Messenger?"
+              : "Already have an account?"}
+          </div>
+          <div className='underline cursor-pointer' onClick={toggleVariant}>
+            {variant === "LOGIN" ? "Create an account" : "Login"}
           </div>
         </div>
       </div>
