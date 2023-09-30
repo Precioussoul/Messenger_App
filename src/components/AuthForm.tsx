@@ -2,6 +2,7 @@
 import React, {useCallback, useState} from "react"
 import {FieldValues, SubmitHandler, useForm} from "react-hook-form"
 import Input from "./inputs/Input"
+import Button from "./Button"
 
 type variantProps = "LOGIN" | "REGISTER"
 
@@ -60,6 +61,17 @@ const AuthForm = () => {
             register={register}
             errors={errors}
           />
+          <Input
+            id='password'
+            label='Password'
+            register={register}
+            errors={errors}
+          />
+          <div className=''>
+            <Button disabled={isLoading} fullWidth type='submit'>
+              {variant === "LOGIN" ? "Sign in" : "Register"}
+            </Button>
+          </div>
         </form>
       </div>
     </div>
