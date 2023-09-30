@@ -30,6 +30,14 @@ const AuthForm = () => {
 
   const onSubmit: SubmitHandler<FieldValues> = (data) => {
     setIsLoading(true)
+
+    if (variant === "REGISTER") {
+      // axios register
+    }
+
+    if (variant === "LOGIN") {
+      // next auth
+    }
   }
 
   return <div>AuthForm</div>
