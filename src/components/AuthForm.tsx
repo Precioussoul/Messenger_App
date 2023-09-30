@@ -1,6 +1,7 @@
 "use client"
 import React, {useCallback, useState} from "react"
 import {FieldValues, SubmitHandler, useForm} from "react-hook-form"
+import Input from "./inputs/Input"
 
 type variantProps = "LOGIN" | "REGISTER"
 
@@ -46,7 +47,15 @@ const AuthForm = () => {
     // next auth social sign in
   }
 
-  return <div>AuthForm</div>
+  return (
+    <div className='mt-8 sm:mx-auto sm:w-full sm:max-w-md'>
+      <div className='bg-white px-4 py-8 shadow rounded-lg sm:py-10'>
+        <form className='space-y-5' onSubmit={handleSubmit(onSubmit)}>
+          <Input />
+        </form>
+      </div>
+    </div>
+  )
 }
 
 export default AuthForm
