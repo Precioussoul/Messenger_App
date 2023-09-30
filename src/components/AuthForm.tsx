@@ -40,6 +40,12 @@ const AuthForm = () => {
     }
   }
 
+  const socialAction = (action: string) => {
+    setIsLoading(true)
+
+    // next auth social sign in
+  }
+
   return <div>AuthForm</div>
 }
 
