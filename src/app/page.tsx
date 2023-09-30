@@ -1,3 +1,3 @@
 export default function Home() {
-  return <>hello world</>
+  return <div className='text-sky-500 text-3xl'>hello world</div>
 }
