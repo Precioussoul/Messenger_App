@@ -40,7 +40,7 @@ const AuthForm = () => {
     }
 
     if (variant === "LOGIN") {
-      // next auth
+      // next authentication
     }
   }
 
