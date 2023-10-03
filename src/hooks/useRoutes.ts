@@ -5,12 +5,21 @@ import {HiArrowLeftOnRectangle, HiUser} from "react-icons/hi2"
 import {signOut} from "next-auth/react"
 
 import useConversation from "./useConversation"
+import {IconType} from "react-icons"
+
+interface RouteProps {
+  label: string
+  href: string
+  icons: IconType
+  active?: boolean
+  onClick?: () => void
+}
 
 const useRoutes = () => {
   const pathname = usePathname()
   const {conversationId} = useConversation()
 
-  const routes = useMemo(
+  const routes: RouteProps[] = useMemo(
     () => [
       {
         label: "Chat",
@@ -33,4 +42,7 @@ const useRoutes = () => {
     ],
     [pathname, conversationId]
   )
+  return routes
 }
+
+export default useRoutes
