@@ -8,6 +8,7 @@ import {BsGithub, BsGoogle} from "react-icons/bs"
 import axios from "axios"
 import toast from "react-hot-toast"
 import {signIn, useSession} from "next-auth/react"
+import {useRouter} from "next/navigation"
 
 type variantProps = "LOGIN" | "REGISTER"
 
@@ -15,12 +16,14 @@ const AuthForm = () => {
   const session = useSession()
   const [variant, setVariant] = useState<variantProps>("LOGIN")
   const [isLoading, setIsLoading] = useState(false)
+  const router = useRouter()
 
   useEffect(() => {
     if (session?.status === "authenticated") {
       console.log("Authenticated!")
+      router.push("/users")
     }
-  }, [session?.status])
+  }, [session?.status, router])
 
   const toggleVariant = useCallback(() => {
     if (variant === "LOGIN") {
