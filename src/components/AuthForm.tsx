@@ -5,6 +5,7 @@ import Input from "./inputs/Input"
 import Button from "./Button"
 import AuthSocialButton from "./AuthSocialButton"
 import {BsGithub, BsGoogle} from "react-icons/bs"
+import axios from "axios"
 
 type variantProps = "LOGIN" | "REGISTER"
 
@@ -37,6 +38,7 @@ const AuthForm = () => {
 
     if (variant === "REGISTER") {
       // axios register
+      axios.post("/api/register", data)
     }
 
     if (variant === "LOGIN") {
