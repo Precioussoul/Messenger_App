@@ -25,3 +25,5 @@ const getUsers = async () => {
     return []
   }
 }
+
+export default getUsers
