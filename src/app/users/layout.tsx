@@ -1,5 +1,6 @@
 import getUsers from "@/actions/getUsers"
 import Sidebar from "@/components/sidebar/Sidebar"
+import UserList from "@/components/users/UserList"
 
 export default async function UserLayout({
   children,
@@ -9,7 +10,10 @@ export default async function UserLayout({
   const users = await getUsers()
   return (
     <Sidebar>
-      <div className='h-full'>{children}</div>
+      <div className='h-full'>
+        <UserList items={users} />
+        {children}
+      </div>
     </Sidebar>
   )
 }
