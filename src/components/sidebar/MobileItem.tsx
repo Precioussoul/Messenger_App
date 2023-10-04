@@ -11,7 +11,7 @@ interface MobileItemsProps {
   onClick?: () => void
 }
 
-const MobileItem = ({href, icon, active, onClick}: MobileItemsProps) => {
+const MobileItem = ({href, icon: Icon, active, onClick}: MobileItemsProps) => {
   const handleClick = () => {
     if (onClick) {
       return onClick()
@@ -21,10 +21,16 @@ const MobileItem = ({href, icon, active, onClick}: MobileItemsProps) => {
     <Link
       onClick={handleClick}
       href={href}
-      className={clsx(`
+      className={clsx(
+        `
     group flex gap-x-3 text-sm font-semibold w-full justify-center p-4 text-gray-500
-  `)}
-    ></Link>
+    hover:text-black hover:bg-gray-100
+  `,
+        active && "bg-gray-100 text-black"
+      )}
+    >
+      <Icon className='h-6 w-6' />
+    </Link>
   )
 }
 
