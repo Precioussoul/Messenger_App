@@ -10,7 +10,7 @@ import {IconType} from "react-icons"
 interface RouteProps {
   label: string
   href: string
-  icons: IconType
+  icon: IconType
   active?: boolean
   onClick?: () => void
 }
@@ -24,19 +24,19 @@ const useRoutes = () => {
       {
         label: "Chat",
         href: "/conversations",
-        icons: HiChat,
+        icon: HiChat,
         active: pathname === "/conversations" || !!conversationId,
       },
       {
         label: "Users",
         href: "/users",
-        icons: HiUsers,
+        icon: HiUsers,
         active: pathname === "/users",
       },
       {
         label: "Logout",
         href: "#",
-        icons: HiArrowLeftOnRectangle,
+        icon: HiArrowLeftOnRectangle,
         onClick: () => signOut(),
       },
     ],

@@ -16,7 +16,7 @@ const DesktopSidebar = () => {
               key={item.label}
               href={item.href}
               label={item.label}
-              icon={item.icons}
+              icon={item.icon}
               active={item?.active}
               onClick={item.onClick}
             />
