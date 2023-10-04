@@ -57,6 +57,12 @@ export const authOptions: AuthOptions = {
       },
     }),
   ],
+  callbacks: {
+    async redirect({url, baseUrl}) {
+      return baseUrl
+    },
+  },
+
   debug: process.env.NODE_ENV !== "production",
   session: {
     strategy: "jwt",
