@@ -3,8 +3,9 @@ import getSession from "./getSession"
 
 const getUsers = async () => {
   const session = await getSession()
+  console.log("session", session)
 
-  if (session?.user?.email) {
+  if (!session?.user?.email) {
     return []
   }
 
@@ -19,6 +20,8 @@ const getUsers = async () => {
         },
       },
     })
+
+    console.log("successfully retrieved", users)
 
     return users
   } catch (error) {
